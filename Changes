@@ -1,5 +1,8 @@
 Revision history for Perl extension Email::StripMIME.
 
+1.00_2  Wed Jan 28 16:37:00 2004
+	- Uh, Test::More is a dependency
+
 1.00_1  Wed Jan 28 11:06:03 2004
 	+ First draft...
 

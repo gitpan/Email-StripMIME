@@ -25,7 +25,7 @@ use Email::MIME;
 use HTML::FormatText;
 use HTML::TreeBuilder;
 
-$VERSION = '1.00_1';
+$VERSION = '1.00_2';
 
 =head1 METHODS
 
