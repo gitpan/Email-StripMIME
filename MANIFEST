@@ -10,3 +10,4 @@ t/04_html_text.t
 t/05_multipart_html.t
 t/06_nested_multipart_html.t
 t/07_multipart_mixed.t
+t/08_no_mime.t

@@ -1,5 +1,8 @@
 Revision history for Perl extension Email::StripMIME.
 
+1.00_3  Tue Feb 03 14:00:00 2004
+	+ Handle emails with no MIME headers correctly
+
 1.00_2  Wed Jan 28 16:37:00 2004
 	- Uh, Test::More is a dependency
 

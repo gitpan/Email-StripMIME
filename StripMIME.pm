@@ -25,7 +25,7 @@ use Email::MIME;
 use HTML::FormatText;
 use HTML::TreeBuilder;
 
-$VERSION = '1.00_2';
+$VERSION = '1.00_3';
 
 =head1 METHODS
 
@@ -53,16 +53,25 @@ sub strip_mime {
 	# Holds any HTML parts of the message, in case
 	# we've not found any usable text parts
 		my @html_parts;
-	
+
 	# Go through the different parts of the email (unless
 	# it only has one part, in which case, this'll return
 	# that part anyway)
-		for my $entity ( $parsed->parts ) {
+
+		if ( !$parsed->content_type ) {
+
+			$message_body = $parsed->body();
+
+		} else {
+
+			for my $entity ( $parsed->parts ) {
 	
-			_extract_text( $entity, \$message_body, \@html_parts );
+				_extract_text( $entity, \$message_body, \@html_parts );
 	
+			}
+
 		}
-	
+
 	# If we didn't get any 'plain' text, but we did
 	# get HTML, use that...
 		if ( !$message_body && @html_parts ) {
