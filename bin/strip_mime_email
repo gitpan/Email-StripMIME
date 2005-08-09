@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+	use strict;
+	use warnings;
+
+	use Email::StripMIME;
+
+	my $email = join '', (<>);
+
+	print Email::StripMIME::strip_mime( $email );

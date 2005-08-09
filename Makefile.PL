@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'Email::StripMIME',
-    'VERSION_FROM'	=> 'StripMIME.pm', # finds $VERSION
+    'VERSION_FROM'	=> 'lib/Email/StripMIME.pm', # finds $VERSION
     'PREREQ_PM'		=> { 
 			Email::MIME => 0.01,
 			Email::MIME::Encodings => 1.1,
@@ -12,6 +12,6 @@ WriteMakefile(
 			Test::More => 0.01,
 			}, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM => 'StripMIME.pm', # retrieve abstract from module
+      (ABSTRACT_FROM => 'lib/Email/StripMIME.pm', # retrieve abstract from module
        AUTHOR     => 'Pete Sergeant <stripmime@clueball.com>') : ()),
 );

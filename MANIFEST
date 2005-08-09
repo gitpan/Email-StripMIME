@@ -2,7 +2,8 @@ Changes
 Makefile.PL
 MANIFEST
 README
-StripMIME.pm
+bin/strip_mime_email
+lib/Email/StripMIME.pm
 t/01_simple_text.t
 t/02_multipart_text.t
 t/03_nested_multipart_text.t
@@ -11,3 +12,4 @@ t/05_multipart_html.t
 t/06_nested_multipart_html.t
 t/07_multipart_mixed.t
 t/08_no_mime.t
+META.yml                                 Module meta-data (added by MakeMaker)

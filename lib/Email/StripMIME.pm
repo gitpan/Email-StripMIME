@@ -25,7 +25,7 @@ use Email::MIME;
 use HTML::FormatText;
 use HTML::TreeBuilder;
 
-$VERSION = '1.00_3';
+$VERSION = '1.01';
 
 =head1 METHODS
 
@@ -56,10 +56,11 @@ sub strip_mime {
 
 	# Go through the different parts of the email (unless
 	# it only has one part, in which case, this'll return
-	# that part anyway)
+	# that part anyway). If there's no content-type, there's
+	# no attachments, we assume, see.
 
 		if ( !$parsed->content_type ) {
-
+	
 			$message_body = $parsed->body();
 
 		} else {
@@ -100,8 +101,13 @@ sub strip_mime {
 		$parsed->header_set( "Content-length" => undef );
 		$parsed->header_set( "Lines" => undef );
 	
+	
 	# Replace the Email::MIME object's body...
 		$parsed->body_set( $message_body );
+	# Working around an Email::MIME bug...
+		if ( $parsed->{body_raw} ) {
+			$parsed->{body_raw} = $message_body;
+		}
 	
 	# Return the email as text
 		return $parsed->as_string;
@@ -125,7 +131,7 @@ sub _extract_text {
 		
 		# Clean out extra info
 			$content_type =~ s/;.*//;
-		
+
 		# See if we need to extract more parts
 			if ( $content_type =~ m/^multipart/ ) {
 				
@@ -158,11 +164,11 @@ sub _extract_text {
 
 =head1 AUTHOR
 
-Pete Sergeant -- C<stripmime@clueball.com>
+Pete Sergeant -- C<pete@clueball.com>
 
 =head1 COPYRIGHT
 
-Copyright 2004 B<Pete Sergeant>.
+Copyright 2005 B<Pete Sergeant>.
 
 This program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

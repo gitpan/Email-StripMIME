@@ -1,5 +1,10 @@
 Revision history for Perl extension Email::StripMIME.
 
+1.01 Tue Aug 09 14:00:00 2004
+	+ Worked around the show-stopping
+      http://rt.cpan.org/NoAuth/Bug.html?id=14075
+	- Made the version number non-development
+
 1.00_3  Tue Feb 03 14:00:00 2004
 	+ Handle emails with no MIME headers correctly
 
